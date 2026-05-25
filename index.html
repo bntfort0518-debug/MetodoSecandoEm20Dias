@@ -12,13 +12,15 @@
     <style>
         /* CSS Reset & Variables */
         :root {
-            --primary-bg: #0a0a0a;
-            --secondary-bg: #151515;
-            --surface-color: #1f1f1f;
+            --primary-bg: #09090e; /* Sophisticated deep midnight base */
+            --secondary-bg: #111118;
+            --surface-color: #171724;
             --text-main: #ffffff;
-            --text-muted: #a0a0a0;
-            --accent-color: #d4af37; /* Sophisticated Gold */
-            --accent-hover: #f1c40f;
+            --text-muted: #94a3b8;
+            --accent-color: #ffaa00; /* Vibrant Gold */
+            /* Colorful gradient for subtle premium energy */
+            --primary-gradient: linear-gradient(135deg, #d4af37 0%, #ff5e62 100%);
+            --bg-gradient: radial-gradient(circle at center, #1a102f 0%, #09090e 100%);
         }
 
         * {
@@ -30,6 +32,7 @@
 
         body {
             background-color: var(--primary-bg);
+            background: var(--bg-gradient);
             color: var(--text-main);
             overflow-x: hidden;
             line-height: 1.6;
@@ -42,24 +45,24 @@
 
         /* Buttons */
         .cta-button {
-            background-color: var(--accent-color);
-            color: var(--primary-bg);
+            background: var(--primary-gradient);
+            color: #000000;
             padding: 1.2rem 2.5rem;
             font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 800;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 50px; /* Rounded pill for modern premium look */
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 20px rgba(255, 94, 98, 0.3);
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            background-color: var(--accent-hover);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 94, 98, 0.5);
+            filter: brightness(1.1);
         }
 
         /* Hero Section */
@@ -71,7 +74,7 @@
             align-items: center;
             text-align: center;
             padding: 2rem;
-            background: radial-gradient(circle at center, rgba(30,30,30,1) 0%, var(--primary-bg) 100%);
+            position: relative;
         }
 
         .hero-title {
@@ -80,6 +83,9 @@
             margin-bottom: 1.5rem;
             max-width: 900px;
             line-height: 1.2;
+            background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-subtitle {
@@ -89,21 +95,17 @@
             max-width: 700px;
         }
 
-        /* About Product Section (New Complex Section) */
+        /* About Product Section (Optimized 1-Column Layout) */
         .about-section {
             padding: 6rem 2rem;
             background-color: var(--secondary-bg);
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
         }
 
         .about-container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
         }
 
         .about-content h2 {
@@ -121,13 +123,13 @@
         .target-audience {
             margin: 2.5rem 0;
             background: var(--surface-color);
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border-left: 4px solid #ff5e62;
         }
 
         .target-audience h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 1.5rem;
         }
 
@@ -140,57 +142,35 @@
             padding-left: 2rem;
             margin-bottom: 1rem;
             font-size: 1.1rem;
-            color: #ccc;
+            color: #e2e8f0;
         }
 
         .check-list li::before {
-            content: '•';
-            color: var(--accent-color);
+            content: '✓';
+            color: #ff5e62;
             position: absolute;
             left: 0;
-            top: -2px;
-            font-size: 1.5rem;
+            top: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
         .highlight-box {
-            background: linear-gradient(145deg, rgba(212, 175, 55, 0.1) 0%, rgba(0,0,0,0) 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            margin-bottom: 2rem;
+            background: linear-gradient(145deg, rgba(255, 94, 98, 0.05) 0%, rgba(0,0,0,0) 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 94, 98, 0.15);
+            margin-bottom: 2.5rem;
         }
 
         .highlight-box p {
             margin-bottom: 1rem;
-            color: #ddd;
+            color: #cbd5e1;
         }
 
         .goal-text {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--text-main);
-        }
-
-        .about-visual {
-            height: 100%;
-            min-height: 500px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .mockup-img {
-            width: 100%;
-            height: auto;
-            max-height: 600px;
-            object-fit: contain;
-            border-radius: 12px;
-            transition: transform 0.4s ease;
-        }
-
-        .mockup-img:hover {
-            transform: scale(1.02);
         }
 
         /* Method Overview Section */
@@ -201,8 +181,11 @@
 
         .section-heading {
             font-size: 2.5rem;
-            color: var(--accent-color);
             margin-bottom: 3rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
         .features-grid {
@@ -216,14 +199,15 @@
         .feature-card {
             background: var(--secondary-bg);
             padding: 2.5rem;
-            border-radius: 8px;
+            border-radius: 16px;
             border: 1px solid #222;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent-color);
+            border-color: #ff5e62;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
         }
 
         .feature-card h3 {
@@ -236,90 +220,41 @@
             color: var(--text-muted);
         }
 
-        /* Transformations Section */
+        /* Transformations Section (Integrated Image Asset) */
         .transformation-section {
             padding: 6rem 2rem;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            border-top: 1px solid #333;
+            border-top: 1px solid #222;
         }
 
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
+        .results-asset-container {
+            width: 100%;
             margin-top: 3rem;
-        }
-
-        .result-card {
-            background-color: var(--secondary-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+            border: 1px solid #333;
         }
 
-        .image-comparison {
-            display: flex;
+        .results-main-img {
             width: 100%;
-            height: 350px;
-            background-color: #000;
-            overflow: hidden;
-        }
-
-        .img-container {
-            flex: 1;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .comp-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
             display: block;
-        }
-
-        .img-before {
-            border-right: 2px solid var(--accent-color);
-        }
-
-        .testimonial-text {
-            padding: 2rem;
-        }
-
-        .testimonial-quote {
-            font-style: italic;
-            color: #ddd;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-author {
-            font-weight: bold;
-            color: var(--accent-color);
         }
 
         /* Footer CTA */
         .footer-cta {
             text-align: center;
             padding: 6rem 2rem;
-            background: linear-gradient(0deg, rgba(10,10,10,1) 0%, var(--secondary-bg) 100%);
+            background: linear-gradient(0deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
         }
 
         /* Responsive refinements */
-        @media (max-width: 992px) {
-            .about-container {
-                grid-template-columns: 1fr;
-            }
-            .about-visual {
-                min-height: 300px;
-            }
-        }
-
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
+            .hero-title { font-size: 2.3rem; }
             .section-heading { font-size: 2rem; }
-            .image-comparison { height: 250px; }
-            .hero-section, .about-section, .method-section, .transformation-section { padding: 4rem 1.5rem; }
+            .hero-section, .about-section, .method-section, .transformation-section { padding: 4rem 1.2rem; }
         }
     </style>
 </head>
@@ -337,7 +272,7 @@
         <div class="about-container">
             <div class="about-content gsap-slide-up">
                 <h2><span class="text-accent">🔥</span> Método Secar em 20 Dias 4.0</h2>
-                <p class="about-text">O Método Secar em 20 Dias 4.0 é um guia prático criado para pessoas que desejam emagrecer de forma saudável, acelerar a queima de gordura e transformar o corpo sem precisar viver em dietas extremas ou treinos impossíveis.</p>
+                <p class="about-text">O Método Secar em 20 Dias 4.0 é um guia prático criado para pessoas que desejam emagrecer de forma saudável, acessar a aceleração da queima de gordura e transformar o corpo sem precisar viver em dietas extremas ou treinos impossíveis.</p>
                 <p class="about-text">Dentro do método, você recebe um passo a passo simples e estratégico com orientações de alimentação, organização da rotina e hábitos que ajudam o corpo a ativar naturalmente o processo de emagrecimento.</p>
                 
                 <div class="target-audience">
@@ -356,12 +291,9 @@
                     <p class="goal-text">⚡ <strong>O objetivo do Método Secar em 20 Dias 4.0</strong> é ajudar você a criar uma transformação real no seu corpo e nos seus hábitos, de forma consistente e sustentável.</p>
                 </div>
                 
-                <a href="https://pay.kiwify.com.br/6XUzyee?afid=QVTzRhIO" target="_blank" class="cta-button mt-4">Garantir Meu Acesso Agora</a>
-            </div>
-            
-            <div class="about-visual gsap-fade-in">
-                <!-- Mockup Image Added Here -->
-                <img src="mockup-produto.png" alt="Mockup do Método Secar em 20 Dias 4.0" class="mockup-img">
+                <div class="text-center">
+                    <a href="https://pay.kiwify.com.br/6XUzyee?afid=QVTzRhIO" target="_blank" class="cta-button">Garantir Meu Acesso Agora</a>
+                </div>
             </div>
         </div>
     </section>
@@ -386,47 +318,18 @@
     </section>
 
     <!-- Transformations Section -->
-    <section class="transformation-section">
-        <h2 class="section-heading text-center gsap-fade-in">Resultados Reais</h2>
+    <section class="transformation-section text-center">
+        <h2 class="section-heading gsap-fade-in">Resultados Reais</h2>
         
-        <div class="results-grid">
-            <!-- Testimonial 1 (Camila) -->
-            <div class="result-card gsap-slide-up">
-                <div class="image-comparison">
-                    <div class="img-container img-before">
-                        <img src="image_0.png" alt="Camila - Antes" class="comp-img">
-                    </div>
-                    <div class="img-container img-after">
-                        <img src="image_1.png" alt="Camila - Depois" class="comp-img">
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <p class="testimonial-quote">"Eu achei que seria impossível nos primeiros dias, mas o passo a passo é tão simples que perdi medidas já na primeira semana."</p>
-                    <p class="testimonial-author">- Camila, 28 anos</p>
-                </div>
-            </div>
-
-            <!-- Testimonial 2 (Juliana) -->
-            <div class="result-card gsap-slide-up">
-                <div class="image-comparison">
-                    <div class="img-container img-before">
-                        <img src="image_2.png" alt="Juliana - Antes" class="comp-img">
-                    </div>
-                    <div class="img-container img-after">
-                        <img src="image_3.png" alt="Juliana - Depois" class="comp-img">
-                    </div>
-                </div>
-                <div class="testimonial-text">
-                    <p class="testimonial-quote">"Finalmente entendi onde estava errando. O método 4.0 não é dieta, é uma transformação real de rotina."</p>
-                    <p class="testimonial-author">- Juliana, 35 anos</p>
-                </div>
-            </div>
+        <!-- Single Integrated Graphic Asset -->
+        <div class="results-asset-container gsap-slide-up">
+            <img src="resultados.png" alt="Resultados Reais Camila e Juliana" class="results-main-img">
         </div>
     </section>
 
     <!-- Final CTA Section -->
     <section class="footer-cta gsap-fade-in">
-        <h2 class="hero-title" style="font-size: 2.5rem;">Pronta para a sua transformação?</h2>
+        <h2 class="hero-title" style="font-size: 2.5rem; background: #ffffff; -webkit-background-clip: initial; -webkit-text-fill-color: initial; color: #fff;">Pronta para a sua transformação?</h2>
         <p class="hero-subtitle" style="margin: 0 auto 2rem auto;">Junte-se a centenas de pessoas que já ativaram a queima natural de gordura.</p>
         <a href="https://pay.kiwify.com.br/6XUzyee?afid=QVTzRhIO" target="_blank" class="cta-button">Quero Secar em 20 Dias</a>
     </section>
