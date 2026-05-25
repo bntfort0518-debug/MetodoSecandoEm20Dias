@@ -13,10 +13,12 @@
         /* CSS Reset & Variables */
         :root {
             --primary-bg: #0a0a0a;
-            --secondary-bg: #1a1a1a;
+            --secondary-bg: #151515;
+            --surface-color: #1f1f1f;
             --text-main: #ffffff;
             --text-muted: #a0a0a0;
             --accent-color: #d4af37; /* Sophisticated Gold */
+            --accent-hover: #f1c40f;
         }
 
         * {
@@ -30,6 +32,34 @@
             background-color: var(--primary-bg);
             color: var(--text-main);
             overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .text-accent { color: var(--accent-color); }
+        .mt-4 { margin-top: 2rem; display: inline-block; }
+
+        /* Buttons */
+        .cta-button {
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent-hover);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
         }
 
         /* Hero Section */
@@ -41,15 +71,14 @@
             align-items: center;
             text-align: center;
             padding: 2rem;
-            background: linear-gradient(180deg, rgba(10,10,10,0.8) 0%, var(--primary-bg) 100%), 
-                        url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: radial-gradient(circle at center, rgba(30,30,30,1) 0%, var(--primary-bg) 100%);
         }
 
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            max-width: 800px;
+            max-width: 900px;
             line-height: 1.2;
         }
 
@@ -57,32 +86,109 @@
             font-size: 1.2rem;
             color: var(--text-muted);
             margin-bottom: 2.5rem;
-            max-width: 600px;
+            max-width: 700px;
         }
 
-        .cta-button {
-            background-color: var(--accent-color);
-            color: var(--primary-bg);
-            padding: 1.2rem 2.5rem;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-        }
-
-        /* Problem & Solution Section */
-        .method-section {
+        /* About Product Section (New Complex Section) */
+        .about-section {
             padding: 6rem 2rem;
             background-color: var(--secondary-bg);
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .target-audience {
+            margin: 2.5rem 0;
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .target-audience h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .check-list {
+            list-style: none;
+        }
+
+        .check-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .check-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 1.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.1) 0%, rgba(0,0,0,0) 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box p {
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+
+        .goal-text {
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .about-visual {
+            background: var(--surface-color);
+            height: 100%;
+            min-height: 500px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: var(--text-muted);
+            border: 1px dashed #444;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Method Overview Section */
+        .method-section {
+            padding: 6rem 2rem;
+            background-color: var(--primary-bg);
         }
 
         .section-heading {
@@ -100,27 +206,34 @@
         }
 
         .feature-card {
-            background: var(--primary-bg);
-            padding: 2rem;
+            background: var(--secondary-bg);
+            padding: 2.5rem;
             border-radius: 8px;
-            border: 1px solid #333;
+            border: 1px solid #222;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
         }
 
         .feature-card h3 {
             margin-bottom: 1rem;
             font-size: 1.3rem;
+            color: var(--text-main);
         }
 
         .feature-card p {
             color: var(--text-muted);
-            line-height: 1.6;
         }
 
-        /* Testimonials: Before & After */
+        /* Transformations Section */
         .transformation-section {
             padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            border-top: 1px solid #333;
         }
 
         .results-grid {
@@ -134,33 +247,32 @@
             background-color: var(--secondary-bg);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
         .image-comparison {
             display: flex;
             width: 100%;
-            height: 300px;
-            background-color: #2a2a2a; /* Placeholder background */
+            height: 350px;
+            background-color: #000;
+            overflow: hidden;
         }
 
-        .image-placeholder {
+        .img-container {
             flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            border-right: 1px solid #1a1a1a;
+            overflow: hidden;
             position: relative;
         }
 
-        /* Add your actual images via CSS background or HTML img tags here */
-        .img-before {
-            /* background-image: url('your-before-image.jpg'); background-size: cover; */
+        .comp-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        .img-after {
-            /* background-image: url('your-after-image.jpg'); background-size: cover; */
+        .img-before {
+            border-right: 2px solid var(--accent-color);
         }
 
         .testimonial-text {
@@ -169,9 +281,8 @@
 
         .testimonial-quote {
             font-style: italic;
-            color: var(--text-muted);
+            color: #ddd;
             margin-bottom: 1rem;
-            line-height: 1.5;
         }
 
         .testimonial-author {
@@ -179,6 +290,29 @@
             color: var(--accent-color);
         }
 
+        /* Footer CTA */
+        .footer-cta {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(0deg, rgba(10,10,10,1) 0%, var(--secondary-bg) 100%);
+        }
+
+        /* Responsive refinements */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            .about-visual {
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .section-heading { font-size: 2rem; }
+            .image-comparison { height: 250px; }
+            .hero-section, .about-section, .method-section, .transformation-section { padding: 4rem 1.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -187,11 +321,48 @@
     <header class="hero-section gsap-fade-in">
         <h1 class="hero-title">Pare de lutar contra a balança. Ative a queima natural do seu corpo.</h1>
         <p class="hero-subtitle">Descubra o passo a passo exato para transformar o seu corpo com o Método Secar em 20 Dias 4.0. Sem dietas restritivas, sem efeito sanfona.</p>
-        <a href="#checkout" class="cta-button">Quero começar minha transformação</a>
+        <a href="https://pay.kiwify.com.br/6XUzyee?afid=QVTzRhIO" target="_blank" class="cta-button">Quero começar minha transformação</a>
     </header>
 
+    <!-- Detailed Product Description Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-content gsap-slide-up">
+                <h2><span class="text-accent">🔥</span> Método Secar em 20 Dias 4.0</h2>
+                <p class="about-text">O Método Secar em 20 Dias 4.0 é um guia prático criado para pessoas que desejam emagrecer de forma saudável, acelerar a queima de gordura e transformar o corpo sem precisar viver em dietas extremas ou treinos impossíveis.</p>
+                <p class="about-text">Dentro do método, você recebe um passo a passo simples e estratégico com orientações de alimentação, organização da rotina e hábitos que ajudam o corpo a ativar naturalmente o processo de emagrecimento.</p>
+                
+                <div class="target-audience">
+                    <h3>✅ Ideal para quem:</h3>
+                    <ul class="check-list">
+                        <li>Quer perder peso e medidas</li>
+                        <li>Deseja reduzir barriga e inchaço</li>
+                        <li>Busca uma rotina alimentar mais simples</li>
+                        <li>Não consegue manter dietas restritivas</li>
+                        <li>Quer resultados rápidos de forma prática</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <p>O método foi desenvolvido para facilitar a aplicação no dia a dia, mesmo para pessoas com rotina corrida, trazendo estratégias acessíveis e fáceis de seguir.</p>
+                    <p class="goal-text">⚡ <strong>O objetivo do Método Secar em 20 Dias 4.0</strong> é ajudar você a criar uma transformação real no seu corpo e nos seus hábitos, de forma consistente e sustentável.</p>
+                </div>
+                
+                <a href="https://pay.kiwify.com.br/6XUzyee?afid=QVTzRhIO" target="_blank" class="cta-button mt-4">Garantir Meu Acesso Agora</a>
+            </div>
+            
+            <div class="about-visual gsap-fade-in">
+                <!-- Place your eBook or Course Mockup Image Here -->
+                <div>
+                    <span class="text-accent" style="font-size: 3rem;">📦</span><br>
+                    <p style="margin-top: 1rem;">Área reservada para o<br>Mockup do Produto</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Method Overview Section -->
-    <section class="method-section">
+    <section class="method-section text-center">
         <h2 class="section-heading gsap-slide-up">O Fim das Tentativas Frustradas</h2>
         <div class="features-grid">
             <div class="feature-card gsap-slide-up">
@@ -211,14 +382,18 @@
 
     <!-- Transformations Section -->
     <section class="transformation-section">
-        <h2 class="section-heading text-center gsap-fade-in" style="text-align: center;">Resultados Reais</h2>
+        <h2 class="section-heading text-center gsap-fade-in">Resultados Reais</h2>
         
         <div class="results-grid">
-            <!-- Testimonial 1 -->
+            <!-- Testimonial 1 (Camila) -->
             <div class="result-card gsap-slide-up">
                 <div class="image-comparison">
-                    <div class="image-placeholder img-before">Foto Antes</div>
-                    <div class="image-placeholder img-after">Foto Depois</div>
+                    <div class="img-container img-before">
+                        <img src="image_0.png" alt="Camila - Antes" class="comp-img">
+                    </div>
+                    <div class="img-container img-after">
+                        <img src="image_1.png" alt="Camila - Depois" class="comp-img">
+                    </div>
                 </div>
                 <div class="testimonial-text">
                     <p class="testimonial-quote">"Eu achei que seria impossível nos primeiros dias, mas o passo a passo é tão simples que perdi medidas já na primeira semana."</p>
@@ -226,11 +401,15 @@
                 </div>
             </div>
 
-            <!-- Testimonial 2 -->
+            <!-- Testimonial 2 (Juliana) -->
             <div class="result-card gsap-slide-up">
                 <div class="image-comparison">
-                    <div class="image-placeholder img-before">Foto Antes</div>
-                    <div class="image-placeholder img-after">Foto Depois</div>
+                    <div class="img-container img-before">
+                        <img src="image_2.png" alt="Juliana - Antes" class="comp-img">
+                    </div>
+                    <div class="img-container img-after">
+                        <img src="image_3.png" alt="Juliana - Depois" class="comp-img">
+                    </div>
                 </div>
                 <div class="testimonial-text">
                     <p class="testimonial-quote">"Finalmente entendi onde estava errando. O método 4.0 não é dieta, é uma transformação real de rotina."</p>
@@ -240,16 +419,23 @@
         </div>
     </section>
 
+    <!-- Final CTA Section -->
+    <section class="footer-cta gsap-fade-in">
+        <h2 class="hero-title" style="font-size: 2.5rem;">Pronta para a sua transformação?</h2>
+        <p class="hero-subtitle" style="margin: 0 auto 2rem auto;">Junte-se a centenas de pessoas que já ativaram a queima natural de gordura.</p>
+        <a href="https://pay.kiwify.com.br/6XUzyee?afid=QVTzRhIO" target="_blank" class="cta-button">Quero Secar em 20 Dias</a>
+    </section>
+
     <!-- Scripts -->
     <script>
         // Register ScrollTrigger plugin
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero animations
+        // Hero and global fade animations
         gsap.from(".gsap-fade-in", {
-            duration: 1.5,
+            duration: 1.2,
             opacity: 0,
-            y: 30,
+            y: 20,
             ease: "power3.out",
             stagger: 0.2
         });
@@ -263,7 +449,7 @@
                     toggleActions: "play none none reverse"
                 },
                 duration: 1,
-                y: 50,
+                y: 40,
                 opacity: 0,
                 ease: "power2.out"
             });
