@@ -171,18 +171,26 @@
         }
 
         .about-visual {
-            background: var(--surface-color);
             height: 100%;
             min-height: 500px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: var(--text-muted);
-            border: 1px dashed #444;
-            position: relative;
             overflow: hidden;
+        }
+
+        .mockup-img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: 12px;
+            transition: transform 0.4s ease;
+        }
+
+        .mockup-img:hover {
+            transform: scale(1.02);
         }
 
         /* Method Overview Section */
@@ -352,11 +360,8 @@
             </div>
             
             <div class="about-visual gsap-fade-in">
-                <!-- Place your eBook or Course Mockup Image Here -->
-                <div>
-                    <span class="text-accent" style="font-size: 3rem;">📦</span><br>
-                    <p style="margin-top: 1rem;">Área reservada para o<br>Mockup do Produto</p>
-                </div>
+                <!-- Mockup Image Added Here -->
+                <img src="mockup-produto.png" alt="Mockup do Método Secar em 20 Dias 4.0" class="mockup-img">
             </div>
         </div>
     </section>
